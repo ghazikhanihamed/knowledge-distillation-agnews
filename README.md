@@ -21,20 +21,14 @@ pip install torch transformers datasets evaluate numpy pandas matplotlib
 
 ## File & Folder Structure
 
-File/Folder      Description
-------------------------------------------------------------------------------------------
-main.py          Main Python file to run the training and knowledge distillation pipelines.
-------------------------------------------------------------------------------------------
-main_results/    Contains the main results and plots from the final/optimized experiments.
-------------------------------------------------------------------------------------------
-results/         Additional results generated during different experimentations and runs.
-------------------------------------------------------------------------------------------
-other_py/        Additional Python files/scripts for ablation, testing, or auxiliary experiments.
-------------------------------------------------------------------------------------------
-5%/              Results and outputs when only 5% of the dataset was used for training.
-------------------------------------------------------------------------------------------
-20%/             Results and outputs when 20% of the dataset was used for training.
-------------------------------------------------------------------------------------------
+| File/Folder     | Description                                                                |
+|-----------------|----------------------------------------------------------------------------|
+| `main.py`       | Main Python file to run the training and knowledge distillation pipelines.  |
+| `main_results/` | Contains the main results and plots from the final/optimized experiments.   |
+| `results/`      | Additional results generated during different experimentations and runs.    |
+| `other_py/`     | Additional Python files/scripts for ablation, testing, or auxiliary experiments. |
+| `5%/`           | Results and outputs when only 5% of the dataset was used for training.      |
+| `20%/`          | Results and outputs when 20% of the dataset was used for training.          |
 
 
 ## How to Run
