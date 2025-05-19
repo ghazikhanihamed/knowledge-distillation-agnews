@@ -1,0 +1,24 @@
+==================================================
+Knowledge Distillation Results
+==================================================
+
+Model Parameter Counts:
+Teacher (BERT): 109,485,316 parameters
+Student (DistilBERT): 66,956,548 parameters
+Parameter Reduction: 38.84%
+
+Performance Metrics:
+Model                                    Accuracy   F1 Score  
+------------------------------------------------------------
+Teacher (BERT)                           0.9336    0.9332
+Baseline Student                         0.9132    0.9129
+Response-based KD (T=0.5, α=0.5, lr=5e-6) 0.9138    0.9136
+
+
+Methodology Notes:
+1. Response-based Knowledge Distillation: Uses soft targets from teacher logits with temperature scaling.
+2. Feature-based Knowledge Distillation: Aligns intermediate representations between teacher and student.
+3. Hyperparameter optimization was performed for both methods.
+
+
+File generated on: 2025-05-16 08:59:13

@@ -1,0 +1,41 @@
+Results Summary - 2025-05-18 18:43:28
+======================================================================
+Settings: lr_enc=3e-5, lr_dec=2e-5, temp=5.0 (DistilBERT), 2.0 (DistilGPT2), alpha=0.5 (DistilBERT), 0.5 (DistilGPT2), epochs=3, batch_size=32
+120000 training examples, 7600 test examples
+Classes: ['World', 'Sports', 'Business', 'Sci/Tech']
+Teacher model: ./bert_teacher_ag_news_improved
+Student model: distilbert-base-uncased
+
+EXPERIMENT 1: Training baseline student model...
+Baseline student trained in 3710.7 seconds
+Accuracy: 0.9439, F1: 0.9440
+
+EXPERIMENT 2: Training student with knowledge distillation...
+Distilled student trained in 6067.1 seconds
+Accuracy: 0.9442, F1: 0.9442
+
+Evaluating teacher model...
+Teacher accuracy: 0.9436, F1: 0.9436
+
+EXPERIMENT 3: Distillation with Decoder-Only Student...
+Pre-fine-tuning decoder-only student...
+Pre-fine-tuned decoder accuracy: 0.9320, F1: 0.9319
+Training decoder-only student with knowledge distillation...
+Decoder-only student trained in 7077.4 seconds
+Accuracy: 0.8734, F1: 0.8741
+
+MODEL COMPARISON
+======================================================================
+Model                Accuracy   F1 Score   Parameters   Time (s)  
+-------------------- ---------- ---------- ------------ ----------
+BERT (Teacher)       0.9436     0.9436     109,485,316  N/A       
+DistilBERT           0.9439     0.9440     66,956,548  3710.7
+DistilBERT + KD      0.9442     0.9442     66,956,548  6067.1
+DistilGPT2 + KD      0.8734     0.8741     81,915,648  7077.4
+======================================================================
+
+IMPROVEMENT FROM KNOWLEDGE DISTILLATION:
+Accuracy: +0.0003 absolute (+0.03%)
+F1 Score: +0.0003 absolute (+0.03%)
+Compression: 1.6x smaller than teacher
+Performance: 100.1% of teacher accuracy with only 61.2% of parameters

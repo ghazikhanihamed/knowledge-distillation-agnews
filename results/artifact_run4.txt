@@ -1,0 +1,42 @@
+ Results Summary - 2025-05-18 01:57:15
+======================================================================
+Settings: {'name': 'run4', 'lr_enc': 3e-05, 'lr_dec': 2e-05, 'temp': 9.0, 'alpha': 0.8, 'epochs_enc': 2, 'epochs_dec': 2, 'batch_size': 32}
+120000 training examples, 7600 test examples
+Classes: ['World', 'Sports', 'Business', 'Sci/Tech']
+Teacher model: fabriceyhc/bert-base-uncased-ag_news
+Student model: distilbert-base-uncased
+
+EXPERIMENT 1: Training baseline student model...
+Baseline student trained in 2056.9 seconds
+Accuracy: 0.9445, F1: 0.9445
+
+EXPERIMENT 2: Training student with knowledge distillation...
+Distilled student trained in 3201.3 seconds
+Accuracy: 0.9359, F1: 0.9359
+
+Evaluating teacher model...
+Teacher accuracy: 0.9336, F1: 0.9334
+
+EXPERIMENT 3: Distillation with Decoder-Only Student...
+Pre-fine-tuning decoder-only student...
+Pre-fine-tuned decoder accuracy: 0.9370, F1: 0.9369
+Training decoder-only student with knowledge distillation...
+Decoder-only student trained in 3722.1 seconds
+Accuracy: 0.2846, F1: 0.2183
+
+MODEL COMPARISON
+======================================================================
+Model                Accuracy   F1 Score   Parameters   Time (s)  
+-------------------- ---------- ---------- ------------ ----------
+BERT (Teacher)       0.9336     0.9334     109,485,316  N/A       
+DistilBERT           0.9445     0.9445     66,956,548  2056.9
+DistilBERT + KD      0.9359     0.9359     66,956,548  3201.3
+DistilGPT2 + KD      0.2846     0.2183     81,915,648  3722.1
+======================================================================
+
+IMPROVEMENT FROM KNOWLEDGE DISTILLATION:
+Accuracy: +-0.0086 absolute (+-0.86%)
+F1 Score: +-0.0085 absolute (+-0.85%)
+Compression: 1.6x smaller than teacher
+Performance: 100.3% of teacher accuracy with only 61.2% of parameters
+ 
